@@ -1,0 +1,117 @@
+.container {
+	  width: 100%;
+	  margin: 0 auto;
+	  display: flex;
+	  justify-content: space-between;
+	}	
+	.form-col {
+	  display: flex;
+	  max-width: 320px;
+	  width: 100%;
+	  margin: 30px auto;
+	}
+	form {
+	  display: flex;
+	  flex-direction: column;
+	  width: 100%;
+	}
+	.form-group {
+		margin-bottom: 16px;
+		text-align: left;
+	}
+	input {
+	  padding: 6px 10px;
+	  height: 40px;
+	  box-sizing: border-box;
+	  border-radius: 2px;
+	  box-shadow: none;
+	  border: 1px solid #ccc;
+	  outline: none;
+	  width: 100%;
+	}
+	input[type='radio'] {
+		padding: 0;
+	  	height: auto;
+	  	width: auto;
+	}
+	button {
+	  box-shadow: none;
+	  border: none;
+	  color: #fff;
+	  text-transform: uppercase;
+	  font-size: 18px;
+	  background: orange;
+	  border-radius: 2px;
+	  padding: 12px 10px 9px;
+	  font-weight: bold;
+	  cursor: pointer;
+	  outline: none;
+	  margin: 16px 0;
+	  width: 100%;
+	}
+
+	.entre-type {
+		margin: 0 0 6px;
+	}
+
+	.mt-20 {
+		margin-top: 20px;
+	}
+
+	.mb-16 {
+		margin-bottom: 16px;
+	}
+
+	.label {
+		margin-bottom: 8px;
+		display: inline-block;
+	}
+
+	.show-data {
+		text-align: center;
+		margin-top: 30px
+	}
+
+	table {
+	    text-align: left;
+	    margin: 0 auto;
+	    width: 100%;
+	    max-width: 760px;
+	    border-collapse: collapse;
+	}
+
+	table tr th {
+		padding-bottom: 10px
+	}
+
+	table tr th:last-child {
+		text-align: right;
+	}
+
+	table tr td {
+		border-bottom: 1px solid #ccc;
+	    padding: 10px 0px;
+	    align-items: center;
+	}
+
+	table tr td:last-child {
+		text-align: right;
+	}
+
+	.error {
+		color: red;
+		font-size: 14px;
+	}
+
+	.close {
+		width: auto;
+		float: inherit;
+    	display: flex;
+    	justify-content: flex-end;
+	}
+
+	a {
+		color: #007bff !important;
+		cursor: pointer;
+	}
+
