@@ -3,6 +3,7 @@
 	  margin: 0 auto;
 	  display: flex;
 	  justify-content: space-between;
+	  flex-direction: column;
 	}	
 	.form-col {
 	  display: flex;
@@ -113,5 +114,12 @@
 	a {
 		color: #007bff !important;
 		cursor: pointer;
+	}
+
+	#table_content{
+		width: 100%;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
 	}
 

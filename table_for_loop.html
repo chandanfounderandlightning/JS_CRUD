@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>  
+<body>
+  <div class="container">
+  	<div class="form-col right">
+	  <form id="demo">
+	  	<div class="form-group">
+	  		<label style="margin-bottom: 5px; display: inline-block;">Table start from</label>
+	  		<input type="text" name="" id='table_start' />
+	  	</div>
+	  	<div class="form-group">
+	  		<label style="margin-bottom: 5px; display: inline-block;">Table end</label>
+	  		<input type="text" name="" id='table_end'>
+	  	</div>
+	  	<button onclick="submitCase()" type="button">Submit</button>
+	  </form>
+	</div>
+	<div id='table_content'>
+	  	
+	  </div>
+  </div>
+
+<script src="./test.js"></script>
+<script>
+
+  function submitCase() {
+  	let tableStartGetValue, tableEndGetValue, tableEnd, dynamicValue;
+  	tableStartGetValue = parseInt(document.getElementById('table_start').value);
+  	tableEndGetValue = parseInt(document.getElementById('table_end').value);
+
+  	for(i = 1; i <= tableEndGetValue; i++) {
+		document.getElementById('table_content').innerHTML += `<p>${tableStartGetValue + ' *' + ' ' + i  + ' = ' + i * tableStartGetValue}</p>`;
+	}
+  }
+
+</script>
+
+</body>
+</html>
