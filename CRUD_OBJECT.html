@@ -69,84 +69,19 @@
     addName = document.getElementById('add_name').value;
     addAge = document.getElementById('add_age').value;
     number = document.getElementById('add_roll').value;
-    ucreateMember[addName] = {name: addName, age: addAge, number: number};
-    document.getElementsByClassName('close')[0].click();
+    if(addName === '') {
+      document.getElementsByClassName('modal_error')[0].innerHTML = `<div class='error'>Please enter the name</div>`
+    }
+    if(addAge === '') {
+      document.getElementsByClassName('modal_error')[1].innerHTML = `<div class='error'>Please enter the age</div>`
+    }
+    if(number === '') {
+      document.getElementsByClassName('modal_error')[2].innerHTML = `<div class='error'>Please enter the number</div>`
+    } else {
+      document.getElementsByClassName('close')[0].click();
+      ucreateMember[addName] = {name: addName, age: addAge, number: number};
+    }
     memberList();
-    console.log(ucreateMember);
-  }
-
-  function removeMember(key) {
-    delete ucreateMember[key];
-    document.getElementsByClassName('close')[0].click();
-    memberList();
-  }
-
-  function confirmModal(key) {
-    document.getElementById('modal_status').innerHTML = `<div class="modal fade" id="deleteMemberModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Delete Member</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-             <p>Do you really want to remove member?</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" onclick="removeMember('${key}')" class="btn btn-primary">Delete</button>
-            </div>
-        </div>
-      </div>
-    </div>`
-  }
-
-  function editMemberModal(key) {
-    getEditMember = ucreateMember[key];
-    document.getElementById('modal_status').innerHTML = `<div class="modal fade" id="editMemberModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Edit Details</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label>Edit Name</label>
-                  <input class="form-control" type="name" id="edit_name" value="${getEditMember.name}">
-                  <span class='modal_error'></span>
-                </div>
-                <div class="form-group">
-                  <label>Edit Age</label>
-                  <input class="form-control" type="name" id="edit_age" value="${getEditMember.age}">
-                  <span class='modal_error'></span>
-                </div>
-                <div class="form-group">
-                  <label>Edit Roll No.</label>
-                  <input class="form-control" type="name" id="edit_roll" value="${getEditMember.number}">
-                  <span class='modal_error'></span>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" onclick="editSubmit('${key}')" class="btn btn-primary">Submit</button>
-            </div>
-          </div>
-        </div>
-      </div>`
-  }
-
-  function editSubmit(key) {
-    getEditMember.name = document.getElementById('edit_name').value;
-    getEditMember.role = document.getElementById('edit_age').value;
-    getEditMember.number = document.getElementById('edit_roll').value;
-    document.getElementsByClassName('close')[0].click();
-    memberList();
-    console.log(ucreateMember);
   }
 
   function addMemberModal() {
@@ -184,6 +119,79 @@
           </div>
         </div>
       </div>`
+  }
+
+  function removeMember(key) {
+    delete ucreateMember[key];
+    document.getElementsByClassName('close')[0].click();
+    memberList();
+  }
+
+  function confirmModal(key) {
+    document.getElementById('modal_status').innerHTML = `<div class="modal fade" id="deleteMemberModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Delete Member</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+             <p>Do you really want to remove member?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" onclick="removeMember('${key}')" class="btn btn-primary">Delete</button>
+            </div>
+        </div>
+      </div>
+    </div>`
+  }
+
+  function editMemberModal(key) {
+    getEditMember = ucreateMember[key];
+    document.getElementById('modal_status').innerHTML = `<div class="modal fade" id="editMemberModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Details</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label>Edit Name</label>
+                  <input class="form-control" type="name" id="edit_name" value="${getEditMember.name}">
+                  <span class='modal_error'></span>
+                </div>
+                <div class="form-group">
+                  <label>Edit Age</label>
+                  <input class="form-control" type="name" id="edit_age" value="${getEditMember.age}">
+                  <span class='modal_error'></span>
+                </div>
+                <div class="form-group">
+                  <label>Edit Roll No.</label>
+                  <input class="form-control" type="name" id="edit_roll" value="${getEditMember.number}">
+                  <span class='modal_error'></span>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" onclick="editSubmit('${key}')" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>`
+  }
+
+  function editSubmit(key) {
+    getEditMember.name = document.getElementById('edit_name').value;
+    getEditMember.age = document.getElementById('edit_age').value;
+    getEditMember.number = document.getElementById('edit_roll').value;
+    document.getElementsByClassName('close')[0].click();
+    memberList();
   }
 
   function searchMember() {
