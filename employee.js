@@ -1,4 +1,4 @@
-var i, j, k, userInfo, getEmpData, getUsername, getUserEmail, getUserpassword, gender, selected, count,  storeRadioValue, checkAllMergeValue, option, getValueMoreFramework, getCheckboxValue, selectedCheckBox, numbers, mailformat, mergeRadioArray, getOptionValue, getAllData, mergeData, dropdownOptions, anotherOptions;
+var i, j, k, userInfo, getEmpData, getUsername, getUserEmail, getUserpassword, gender, selected, count, option, getCheckboxValue, selectedCheckBox, numbers, mailformat, getOptionValue, getAllData, mergeData;
 
 selected = [];
 count = 0;
