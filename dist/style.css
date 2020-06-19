@@ -271,3 +271,8 @@
 		color: #2381e6 !important;
 	}
 
+	#more_framework {
+		max-width: 100%;
+		flex-basis: 100%;
+	}
+
