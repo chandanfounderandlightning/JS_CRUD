@@ -55,14 +55,6 @@ function formValidation() {
 		errorSubmit = true;
 	}
 
-	for (option of document.getElementById('technology').options) {
-    	if (option.selected) {
-    		console.log(option.value);
-    	} else {
-    		console.log('Not Working');
-    	}
-  	}
-
 	if(addFrameWork == '') {
 		document.getElementById('framework_error').textContent = 'This field id is mandatory';
 		errorSubmit = true;
@@ -145,10 +137,14 @@ function checkValue() {
 		if(getEmpData === mergeData.employeeId) {
 			document.getElementById('emp_error').textContent = 'Employee id is already exist';
 			return true;
+		} else {
+			document.getElementById('emp_error').textContent = '';
 		}
 		if(getUserEmail === mergeData.email) {
 			document.getElementById('email_error').textContent = 'Email address is already exist';
 			return true;
+		} else {
+			document.getElementById('email_error').textContent = '';
 		}
 	}
 }
