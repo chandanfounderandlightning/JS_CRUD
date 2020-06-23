@@ -64,27 +64,31 @@
 
           <div class='form-group input-group'>
             <h5>Select your hobbies</h5>
-            <div class='input-box'>
-              <input type='checkbox' name='hobbies' value='music' id='music'>
-              <label for='music'>Music</label>
+            <div class="w-100 d-flex justify-content-between">
+              <div class='input-box'>
+                <input type='checkbox' name='hobbies' value='music' id='music'>
+                <label for='music'>Music</label>
+              </div>
+              <div class='input-box'>
+                <input type='checkbox' name='hobbies' value='cricket' id='cricket'>
+                <label for='cricket'>Cricket</label>
+              </div>
+              <div class='input-box'>
+                <input type='checkbox' name='hobbies' value='book' id='book'>
+                <label for='book'>Books</label>
+              </div>
+              <div class='input-box'>
+                <input type='checkbox' name='hobbies' value='travel' id='travel'>
+                <label for='travel'>Travel</label>
+              </div>
             </div>
-            <div class='input-box'>
-              <input type='checkbox' name='hobbies' value='cricket' id='cricket'>
-              <label for='cricket'>Cricket</label>
-            </div>
-            <div class='input-box'>
-              <input type='checkbox' name='hobbies' value='book' id='book'>
-              <label for='book'>Books</label>
-            </div>
-            <div class='input-box'>
-              <input type='checkbox' name='hobbies' value='travel' id='travel'>
-              <label for='travel'>Travel</label>
-            </div>
+            <span class='error' id='hobbies_error'></span>
           </div>
 
           <div class='form-group input-group'>
             <h5>Select Technologies</h5>
             <div class='select-items w-100' id='selectItem'></div>
+            <span class='error' id='tech_error'></span>
           </div>
         </div>
 

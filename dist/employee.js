@@ -1,4 +1,4 @@
-var i, j, k, userInfo, getEmpData, getUsername, getUserEmail, getUserpassword, gender, selected, count, option, getCheckboxValue, selectedCheckBox, numbers, mailformat, getOptionValue, getAllData, mergeData;
+var i, j, k, userInfo, getEmpData, getUsername, getUserEmail, getUserpassword, gender, selected, count, option, getCheckboxValue, selectedCheckBox, numbers, mailformat, getOptionValue, getAllData, mergeData, errorSubmit;
 
 selected = [];
 count = 0;
@@ -18,15 +18,18 @@ function getInputValues() {
 }
 
 function formValidation() {
+	errorSubmit = false;
 	const {getEmpData, getUsername, getUserEmail, getUserpassword, addFrameWork, addComment} = getInputValues();
 	if(getEmpData == null || getEmpData == '') {
-		return document.getElementById('emp_error').textContent = 'Employee id is mandatory';
+		document.getElementById('emp_error').textContent = 'Employee id is mandatory';
+		errorSubmit = true;
 	} else {
 		document.getElementById('emp_error').textContent = '';
 	}
 
 	if(getUsername == null || getUsername == '') {
-		return document.getElementById('name_error').textContent = 'Name is mandatory';
+		document.getElementById('name_error').textContent = 'Name is mandatory';
+		errorSubmit = true;
 	} else {
 		document.getElementById('name_error').textContent = '';
 	}
@@ -34,11 +37,13 @@ function formValidation() {
 	if(getUserEmail.match(mailformat)) {
 		document.getElementById('email_error').textContent = '';
 	} else {
-		return document.getElementById('email_error').textContent = 'You have entered an invalid email address!';
+		document.getElementById('email_error').textContent = 'You have entered an invalid email address!';
+		errorSubmit = true;
 	}
 
-	if(getUserpassword <= 6) {
-		return document.getElementById('pass_error').textContent = 'Password must be at least 6 char long';
+	if(getUserpassword.length < 6) {
+		document.getElementById('pass_error').textContent = 'Password must be at least 6 char long';
+		errorSubmit = true;
 	} else {
 		document.getElementById('pass_error').textContent = '';
 	}
@@ -46,17 +51,28 @@ function formValidation() {
 	if(document.querySelector('input[name=gender]').checked) {
 		document.getElementById('gender_error').textContent = '';
 	} else {
-		document.getElementById('gender_error').textContent = 'Please select gender'
+		document.getElementById('gender_error').textContent = 'Please select gender';
+		errorSubmit = true;
 	}
 
+	for (option of document.getElementById('technology').options) {
+    	if (option.selected) {
+    		console.log(option.value);
+    	} else {
+    		console.log('Not Working');
+    	}
+  	}
+
 	if(addFrameWork == '') {
-		return document.getElementById('framework_error').textContent = 'This field id is mandatory';
+		document.getElementById('framework_error').textContent = 'This field id is mandatory';
+		errorSubmit = true;
 	} else {
 		document.getElementById('framework_error').textContent = '';
 	}
 
 	if(addComment == '') {
-		return document.getElementById('comment_error').textContent = 'This field id is mandatory';
+		document.getElementById('comment_error').textContent = 'This field id is mandatory';
+		return errorSubmit = true;
 	} else {
 		document.getElementById('comment_error').textContent = '';
 	}
@@ -153,8 +169,4 @@ function emptyData() {
 	for(j = 0; j < getCheckboxValue.length; j++) {
 		getCheckboxValue[j].checked = false;
 	}
-
-	// for (j = 0; j < optionValue.length; j++) {
- //    	console.log(optionValue[j]);
- //    }
 }
