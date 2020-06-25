@@ -11,7 +11,7 @@
     <div class="container">
       <nav>
         <ul>          
-          <li><a href='index.html'>Add Member Page</a></li>
+          <li class="active"><a href='index.html'>Add Member Page</a></li>
           <li><a href='crud-array.html'>Crud with Array</a></li>
           <li><a href='crud_object.html'>Crud with Object</a></li>
         </ul>
@@ -105,9 +105,11 @@
           </div>
 
           <div class='textarea-col'>
-            <label for='comment'>Add Comment</label>
-            <textarea class='form-control' id='comment' rows='4'></textarea>
-            <span class='error' id='comment_error'></span>
+            <div class='form-group w-100'>
+              <label for='comment'>Add Comment</label>
+              <textarea class='form-control' id='comment' rows='4'></textarea>
+              <span class='error' id='comment_error'></span>
+            </div>
           </div>
           <div class="submit-btn mt-4">
             <a id='form_submit' onclick="collectUserInfo()" class='btn btn-success'>Submit Form</a>
@@ -125,8 +127,9 @@
             <th>Gender</th>
             <th>Hobbies</th>
             <th>Technologies</th>
-            <th class="text-right">Framework</th>
+            <th>Framework</th>
             <th>Comment</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody id='user_detail'>

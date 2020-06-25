@@ -234,7 +234,8 @@
 	}
 
 	.member-table table {
-		max-width: 1170px;
+		max-width: 1400px;
+		width: 100%;
 	}
 
 	.bootstrap-select .dropdown-menu {
@@ -264,15 +265,34 @@
 		padding: 0 30px;
 	    font-size: 14px;
 	    font-weight: 600;
+	    transition: all 0.3s ease-in-out 0s;
+	}
+
+	.header nav ul li.active a {
+		color: #ff00c8 !important;
 	}
 
 	.header nav ul li a:hover {
 		text-decoration: none;
-		color: #2381e6 !important;
+		color: #ff00c8 !important;
 	}
 
 	#more_framework {
 		max-width: 100%;
 		flex-basis: 100%;
+	}
+
+	#editMemberModal .modal-dialog {
+		max-width: 650px;
+	}
+
+	.textarea-col {
+		margin: 0;
+		text-align: left;
+	}
+
+	.textarea-col .form-group {
+		flex-basis: 100%;
+		max-width: 100%;
 	}
 
