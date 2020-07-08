@@ -1,0 +1,10 @@
+export { default as AwarenessSection } from './AwarenessSection';
+export { default as BlackBackgroundBanner } from './BlackBackgroundBanner';
+export { default as CommunitySection } from './CommunitySection ';
+export { default as Footer } from '../../layout/footer/Footer';
+export { default as GreenBackgroundBanner } from './GreenBackgroundBanner';
+export { default as MeetTestedSection } from './MeetTestedSection';
+export { default as HowWorksSection } from './HowWorksSection';
+export { default as LandingBanner } from './LandingBanner';
+export { default as LandingHeader } from './LandingHeader';
+export { default as PartnerLogoSection } from './PartnerLogoSection';

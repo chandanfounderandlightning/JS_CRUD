@@ -1,9 +1,8 @@
-var i, j, k, userInfo, getEmpData, getUsername, getUserEmail, getUserpassword, gender, selected, count, option, getCheckboxValue, selectedCheckBox, numbers, mailformat, getOptionValue, getAllData, mergeData, errorSubmit, editUserData;
+var i, j, k, userInfo, getEmpData, getUsername, getUserEmail, getUserpassword, gender, selected, count, option, getCheckboxValue, selectedCheckBox, mailformat, getOptionValue, getAllData, mergeData, errorSubmit, editUserData, getRadioValue;
 
 selected = [];
 count = 0;
 userInfo = [];
-numbers = /^[-+]?[0-9]+$/;
 mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 function getInputValues() {
@@ -127,7 +126,7 @@ function showUser() {
 	document.getElementById('user_detail').innerHTML = ``;
 	for(k = 0; k < userInfo.length; k++) {
 		mergeData = userInfo[k];
-		document.getElementById('user_detail').innerHTML += `<td>${mergeData.employeeId}</td><td>${mergeData.name}</td><td>${mergeData.email}</td><td>${mergeData.gender}</td><td>${mergeData.hobbies}</td><td>${mergeData.technology}</td><td class="text-center">${mergeData.framework}</td><td>${mergeData.comment}</td><td><a onclick="actionMemberModal('${k}')" data-toggle='modal' data-target='#deleteMemberModal'>Delete</a></td>`;
+		document.getElementById('user_detail').innerHTML += `<td>${mergeData.employeeId}</td><td>${mergeData.name}</td><td>${mergeData.email}</td><td>${mergeData.gender}</td><td>${mergeData.hobbies}</td><td>${mergeData.technology}</td><td class="text-center">${mergeData.framework}</td><td>${mergeData.comment}</td><td><a data-toggle='modal' data-target='#editMemberModal' onclick="editMember('${k}')">Edit</a></td><td><a onclick="actionMemberModal('${k}')" data-toggle='modal' data-target='#deleteMemberModal'>Delete</a></td>`;
 	}
 }
 
@@ -236,15 +235,15 @@ function editMember(key) {
 			            <div class="form-group input-group">
 			              <h5>Select your gender</h5>
 			              <div class="input-box">
-			                <input type="radio" name="gender" value="male" id="edit_male">
+			                <input type="radio" name="edit_gender" value="male" id="edit_male">
 			                <label for="edit_male">Male</label>
 			              </div>
 			              <div class="input-box">
-			                <input type="radio" name="gender" value="female" id="edit_female">
+			                <input type="radio" name="edit_gender" value="female" id="edit_female">
 			                <label for="edit_female">Female</label>
 			              </div>
 			              <div class="input-box">
-			                <input type="radio" name="gender" value="other" id="edit_other">
+			                <input type="radio" name="edit_gender" value="other" id="edit_other">
 			                <label for="edit_other">Other</label>
 			              </div>
 			            </div>
@@ -310,6 +309,17 @@ function editMember(key) {
 	      </div>
 	    </div>
 	</div>`;
+	getValues();
+}
+
+function getValues() {
+	if(editUserData.gender === 'male') {
+		document.getElementById('edit_male').checked = true;
+	} else if(editUserData.gender === 'female') {
+		document.getElementById('edit_female').checked = true;
+	} else {
+		document.getElementById('edit_other').checked = true;
+	}
 }
 
 function editSubmit() {
